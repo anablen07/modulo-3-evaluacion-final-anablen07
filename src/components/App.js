@@ -2,12 +2,14 @@ import React from 'react';
 import '../stylesheets/App.css';
 import fetchData from '../services/fetchData';
 import CharacterList from './CharacterList';
-
+import Filter from './Filter';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.handleInputValue=this.handleInputValue.bind(this)
     this.state = {
-      data:[]
+      data:[],
+      value:''
     }
   }
 
@@ -24,11 +26,18 @@ class App extends React.Component {
     });
   }
 
+  handleInputValue(inputValue){
+    this.setState({
+      value: inputValue
+    })
+  }
+
   render() {
    
     return (
       <div className="App">
-        <CharacterList results={this.state.data}/>
+        <Filter handleInputValue={this.handleInputValue}/>
+        <CharacterList results={this.state.data} inputValue={this.state.value}/>
       </div>
     );
   }
