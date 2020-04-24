@@ -10,7 +10,7 @@ const Filter = (props) =>{
     return(
         <form className="filter">
         <label htmlFor='name'></label>
-        <input type="text" class="name" id="name" name="name" value={props.value} onChange={updateInputValue}/>
+        <input type="text" class="name" id="name" name="name" value={props.inputValue} onChange={updateInputValue}/>
         </form>
     );
 };

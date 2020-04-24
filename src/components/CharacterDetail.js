@@ -2,10 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const CharacterDetail = (props) => {
+
+
     return (
        
         <div className="character-detail"> 
-         <div className="character-detail-button"> 
+           <div className="character-detail-button"> 
            <Link to="/"><button className="btn">Volver</button>
            </Link>
            </div>
@@ -14,8 +16,16 @@ const CharacterDetail = (props) => {
             </div>
             <div className="character-detail_text">
                 <p className="name-detail">{props.characterObject.name}</p>
-                <p className="status">status: {props.characterObject.status}</p>
-                <p className="species">species: {props.characterObject.species}</p>
+                <p className="status">status: {props.characterObject.status + ' '}
+                {(props.characterObject.status === 'Dead')
+                ? <i class="fas fa-skull-crossbones"></i>
+                : <i class="fas fa-heartbeat"></i>}
+                </p>
+                 <p>species: {props.characterObject.species + ' '}
+                    {(props.characterObject.species === 'Human')
+                    ? <i class="far fa-laugh"></i>
+                    : <i class="fab fa-optin-monster"></i>}
+                 </p>
                 <p className="origin">origin: {props.characterObject.origin.name}</p>
                 <p className="episode">episodes: {props.characterObject.episode.length}</p>
             </div>

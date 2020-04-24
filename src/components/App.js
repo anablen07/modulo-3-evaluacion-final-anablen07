@@ -19,6 +19,10 @@ class App extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    localStorage.setItem('Info', JSON.stringify(this.state.value))
+  }
+
   componentDidMount() {
     fetchData()
       .then(data => {
@@ -27,7 +31,14 @@ class App extends React.Component {
           data: data.results
         });
       })
-      
+    
+      const info = JSON.parse(localStorage.getItem('Info'))
+      if (info !== null) {
+        this.setState({
+          value: info
+        })
+        
+      }
   }
 
   handleInputValue(inputValue) {
@@ -56,7 +67,7 @@ class App extends React.Component {
         <img className='logo' src={logo} alt={logo.name}></img>
         <Switch>
           <Route exact path="/">
-            <Filter handleInputValue={this.handleInputValue} />
+            <Filter handleInputValue={this.handleInputValue} inputValue={this.state.value} />
             <CharacterList results={this.state.data} inputValue={this.state.value} />
           </Route>
           <Route path="/character/:id" render={this.renderCharacterDetail}>

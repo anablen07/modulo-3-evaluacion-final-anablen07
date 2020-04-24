@@ -23,7 +23,8 @@ const CharacterList = (props) => {
                                 name={characterObject.name}
                                 species={characterObject.species}
                             />
-                        </div>    
+                        </div>  
+
                        </Link> 
                     </li>
                 )}

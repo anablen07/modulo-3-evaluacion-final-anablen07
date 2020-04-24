@@ -8,6 +8,7 @@ const CharacterCard = (props) => {
             <p>{props.name}</p>
             <p>{props.species}</p>
         </div>
+      
     )
 }
 

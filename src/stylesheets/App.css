@@ -28,13 +28,8 @@
   padding: 10px;
 }
 
-.character-list_items {
-  
-  color:white;
-  text-align: start;
+.character-list a {
   text-decoration: none;
-  
- 
 }
 
 h1 {
@@ -45,6 +40,10 @@ h1 {
 .character-card {
   background-color:#61c8e6;
   text-decoration: none;
+  color:white;
+  text-align: start; 
+  padding-left: 10px;
+  padding-bottom: 15px;
   
 }
 
@@ -80,6 +79,18 @@ h1 {
   font-size:22px;
   font-weight: bold;
 
+}
+
+.far{
+  color:#ffff33;
+}
+
+.fas{
+  color:red;
+}
+
+.fab{
+  color: #006600;
 }
 
 .error-message{
