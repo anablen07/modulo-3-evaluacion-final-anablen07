@@ -5,13 +5,14 @@ import CharacterList from './CharacterList';
 import Filter from './Filter';
 import CharacterDetail from './CharacterDetail';
 import { Switch, Route } from 'react-router-dom';
+import logo from '../images/logo.png';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleInputValue = this.handleInputValue.bind(this);
-    this.renderCharacterDetail= this.renderCharacterDetail.bind(this);
+    this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.state = {
       data: [],
       value: ''
@@ -26,9 +27,7 @@ class App extends React.Component {
           data: data.results
         });
       })
-      .catch(function (error) {
-        console.log('Hubo un problema al obtener los datos:' + error.message);
-      });
+      
   }
 
   handleInputValue(inputValue) {
@@ -38,27 +37,31 @@ class App extends React.Component {
   }
 
   renderCharacterDetail(props) {
-    const routeId= props.match.params.id;
+    const routeId = parseInt(props.match.params.id);
     const results = this.state.data;
-    for(let characterObject of results){
-      if (characterObject.id === parseInt(routeId))
-      return <CharacterDetail characterObject={characterObject}/>
+    const characterObject = results.find(characterObject => characterObject.id === routeId);
+      
+      if (characterObject) {
+        return (<CharacterDetail characterObject={characterObject}/>);
+      } else {
+        return <p className="error-message">El personaje que buscas no existe</p>
+      }
 
     }
-  }
-
-  render(){
+  
+  render() {
 
     return (
       <div className="App">
-       <Switch>
-        <Route exact path="/">
-        <Filter handleInputValue={this.handleInputValue} />
-        <CharacterList results={this.state.data} inputValue={this.state.value}/>
-        </Route>
-        <Route path="/character/:id" render={this.renderCharacterDetail}>
-        </Route>
-        </Switch> 
+        <img className='logo' src={logo} alt={logo.name}></img>
+        <Switch>
+          <Route exact path="/">
+            <Filter handleInputValue={this.handleInputValue} />
+            <CharacterList results={this.state.data} inputValue={this.state.value} />
+          </Route>
+          <Route path="/character/:id" render={this.renderCharacterDetail}>
+          </Route>
+        </Switch>
       </div>
     );
   }

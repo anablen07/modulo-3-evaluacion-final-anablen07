@@ -3,13 +3,14 @@ import React from 'react';
 const Filter = (props) =>{
 
     const updateInputValue=(event) => {
+        event.preventDefault();
         props.handleInputValue(event.currentTarget.value)
     }
 
     return(
-        <form className="fiter">
-        <label htmlFor='name'>search</label>
-        <input type="text" id="name" name="name" value={props.value} onChange={updateInputValue}/>
+        <form className="filter">
+        <label htmlFor='name'></label>
+        <input type="text" class="name" id="name" name="name" value={props.value} onChange={updateInputValue}/>
         </form>
     );
 };
