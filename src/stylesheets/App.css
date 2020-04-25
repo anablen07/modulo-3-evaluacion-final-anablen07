@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
 .App {
   box-sizing: border-box;
   text-align: center;
@@ -21,15 +27,16 @@
 .character-list {
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);;
+  grid-template-columns: repeat(4,1fr);
   grid-template-rows: repeat(5,1fr);
-  width: 100%;
   grid-gap: 25px;
-  padding: 10px;
+  align-items: stretch;
+  margin: 30px 60px;
 }
 
 .character-list a {
   text-decoration: none;
+  width: 100%;
 }
 
 h1 {
@@ -37,16 +44,34 @@ h1 {
   text-transform:uppercase;
 }
 
+.character-list_items {
+  width: 100%;
+  min-height: 100%;
+  background-color:#61c8e6;
+}
+
 .character-card {
   background-color:#61c8e6;
   text-decoration: none;
   color:white;
   text-align: start; 
-  padding-left: 10px;
-  padding-bottom: 15px;
-  
+  width: 100%;
 }
 
+.character-card img {
+  width: 100%;
+}
+
+.name-card {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 10px 0 10px;
+}
+
+.species-card {
+  font-size: 18px;
+  padding:10px;
+}
 .character-detail {
   margin-right: auto;
   margin-left: auto;
@@ -95,4 +120,5 @@ h1 {
 
 .error-message{
   color: white;
+  font: 16px;
 }
