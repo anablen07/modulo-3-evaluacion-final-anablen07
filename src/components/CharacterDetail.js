@@ -37,7 +37,7 @@ const CharacterDetail = (props) => {
 }
 
 CharacterDetail.propTypes = {
-    
+
     name: PropTypes.string,
     image: PropTypes.string,
     species: PropTypes.string,
@@ -45,5 +45,6 @@ CharacterDetail.propTypes = {
     origin: PropTypes.string,
     episode: PropTypes.string,
 
-}
+};
+
 export default CharacterDetail;

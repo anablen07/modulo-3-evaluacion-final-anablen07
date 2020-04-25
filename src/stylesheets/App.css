@@ -4,6 +4,10 @@
 }
 
 
+html {
+  background-color: black;
+}
+
 .App {
   box-sizing: border-box;
   text-align: center;
@@ -19,19 +23,55 @@
 .name {
   background-color:black;
   color:white;
-  border-radius: #61c8e6;;
-  width: 350px;
-  
+  border-radius: #61c8e6;
+  width: 75%;
+  margin-top: 30px;
+}
+
+@media all and (min-width:768px ) {
+  .name {
+    width: 350px;
+  }
+}
+@media all and (min-width:1140px  ) {
+
+  .name {
+  }
 }
 
 .character-list {
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
-  grid-template-rows: repeat(5,1fr);
+  grid-template-columns: repeat(1,1fr);
   grid-gap: 25px;
   align-items: stretch;
-  margin: 30px 60px;
+  margin: 30px auto;
+  max-width: 300px;
+}
+
+@media all and (min-width:768px ) {
+  .character-list {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 25px;
+    align-items: stretch;
+    margin: 30px 60px;
+    width: auto;
+    max-width: 5000px;
+  }
+}
+
+@media all and (min-width:1140px  ) {
+  .character-list {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(5,1fr);
+    grid-gap: 25px;
+    align-items: stretch;
+    margin: 30px 60px;
+  }
 }
 
 .character-list a {
@@ -86,6 +126,15 @@ h1 {
   padding: 30px;
 }
 
+.btn {
+  transform:translate(480px,-170px);
+  border:none;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .character-detail_text {
   text-transform: capitalize;
   text-align: start;
@@ -121,4 +170,10 @@ h1 {
 .error-message{
   color: white;
   font: 16px;
+}
+
+.error-message-list{
+  color: white;
+  font: 16px;
+  margin-top:45px;
 }

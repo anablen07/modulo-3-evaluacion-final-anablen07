@@ -41,14 +41,13 @@ class App extends React.Component {
     }
   }
 
-  /*/*la función handleInputValue (función de formularios) es la función controladora de ese elemento y, ¿qué es lo que hace? cada vez que detecta un cambio en lo que escribo en el formulario, se ejecuta y me actualiza el valor del value y por ello le digo que value va a valer lo que me mande filter a través de props.value por lifting.Al valor que nos manda lo llamamos inputValue, se lo pasamos a la función y a continuación nos setea (actualiza) el estado con lo que ponga en inputValue.Ahora, abajo, a mi componente Filter le envío esta función para que la ejecute (no olvidarnos de bindearla)
-  /*cada vez que cambie valor del value, se ejecutará y recogerá el valor cambiado*/
-
   handleInputValue(inputValue) {
     this.setState({
       value: inputValue
     })
+
   }
+
 
   renderCharacterDetail(props) {
     const routeId = parseInt(props.match.params.id);

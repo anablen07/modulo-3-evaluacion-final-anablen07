@@ -5,12 +5,15 @@ import PropTypes from 'prop-types';
 
 const CharacterList = (props) => {
     const { results, inputValue } = props;
-    return (
+    const characters = results.filter(characterObject => inputValue === '' || characterObject.name.toLowerCase().includes(inputValue.toLowerCase()));
 
+    if (characters.length === 0) {
+        return <p className="error-message-list">No hay ningún personaje que coincida con la palabra {inputValue}</p>
+    }
+    return (
         <ul>
             <div className='character-list'>
-                {results
-                    .filter(characterObject => inputValue === '' || characterObject.name.toLowerCase().includes(inputValue.toLowerCase()))
+                {characters
                     .sort(function (a, b) {
                         if (a.name < b.name) { return -1; }
                         if (a.name > b.name) { return 1; }
@@ -41,7 +44,7 @@ CharacterList.propTypes = {
     name: PropTypes.string,
     species: PropTypes.string,
     results: PropTypes.array,
-    inputValue: PropTypes.string
-}
+    inputValue: PropTypes.string,
+};
 
 export default CharacterList;

@@ -14,7 +14,7 @@ const CharacterCard = (props) => {
 }
 
 CharacterCard.propTypes = {
-    
+
     img: PropTypes.string,
     name: PropTypes.string,
     species: PropTypes.string

@@ -1,16 +1,16 @@
 import React from 'react';
 
-const Filter = (props) =>{
+const Filter = (props) => {
 
-    const updateInputValue=(event) => {
+    const updateInputValue = (event) => {
         event.preventDefault();
         props.handleInputValue(event.currentTarget.value)
     }
 
-    return(
+    return (
         <form className="filter">
-        <label htmlFor='name'></label>
-        <input type="text" class="name" id="name" name="name" value={props.inputValue} onChange={updateInputValue}/>
+            <label htmlFor='name'></label>
+            <input type="text" className="name" id="name" name="name" value={props.inputValue} onChange={updateInputValue} />
         </form>
     );
 };
